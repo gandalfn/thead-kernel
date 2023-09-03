@@ -67,7 +67,7 @@ dtb-$(CONFIG_SOC_THEAD) += light-lpi4a-console.dtb light-lpi4a-console-16g.dtb
 dtb-$(CONFIG_SOC_THEAD) += light-beagle.dtb
 
 # compat mainline name
-dtb-$(CONFIG_SOC_THEAD) += th1520-lichee-pi-4a.dtb th1520-lichee-pi-4a-16g.dtb
+dtb-$(CONFIG_SOC_THEAD) += th1520-lichee-pi-4a.dtb th1520-lichee-pi-4a-16g.dtb th1520-lichee-pi-4a-2GHz.dtb 
 dtb-$(CONFIG_SOC_THEAD) += th1520-lichee-cluster-4a.dtb th1520-lichee-cluster-4a-16g.dtb
 dtb-$(CONFIG_SOC_THEAD) += th1520-beaglev-ahead.dtb
 
