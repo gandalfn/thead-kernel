@@ -13,6 +13,7 @@
 
 &dsi0_panel0 {
 	compatible = "mingjun,mj070bi30ia2";
+	rotation = <90>;
 };
 
 &i2c2 {

@@ -49,6 +49,7 @@ struct panel_minjun_info {
 	struct regulator	*hsvcc;
 	struct regulator	*vspn3v3;
 
+	enum drm_panel_orientation orientation;
 	bool prepared;
 	bool enabled;
 };
@@ -213,6 +214,7 @@ static int mingjun_get_modes(struct drm_panel *panel,
 
 	connector->display_info.width_mm = mode->width_mm;
 	connector->display_info.height_mm = mode->height_mm;
+	drm_connector_set_panel_orientation(connector, pinfo->orientation);
 
 	return 1;
 }
@@ -525,6 +527,10 @@ static int mj070bi30ia2_panel_add(struct panel_minjun_info *pinfo)
 
 	drm_panel_init(&pinfo->base, dev, &panel_funcs,
 		       DRM_MODE_CONNECTOR_DSI);
+	ret = of_drm_get_panel_orientation(dev->of_node, &pinfo->orientation);
+	if (ret < 0) {
+		dev_warn(dev, "%pOF: failed to get orientation %d\n", dev->of_node, ret);
+	}
 
 	ret = drm_panel_of_backlight(&pinfo->base);
 	if (ret)
